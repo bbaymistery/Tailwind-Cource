@@ -1,22 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Flex</title>
-  </head>
-  <body>
-    <!-- https://tailwindcss.com/docs/flex -->
 
-    <!-- https://tailwindcss.com/docs/flex-direction#column -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS v4 Browser CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <title>Breakpoints & Media Queries</title>
 
-    <!-- https://tailwindcss.com/docs/justify-items -->
+  <style type="text/tailwindcss">
+    /* Görseldeki yeni Tailwind v4 (@theme) yapısı */
+      @theme {
+        --breakpoint-xs: 30rem;   /* Yeni bir 'xs' (ekstra küçük) ekran boyutu eklendi (yaklaşık 480px) */
+        --breakpoint-2xl: 100rem; /* Var olan '2xl' boyutu güncellendi (normalde 96rem idi) */
+        --breakpoint-3xl: 120rem; /* Yeni bir '3xl' ekran boyutu eklendi (yaklaşık 1920px) */
+      }
+    </style>
+</head>
 
-    <!-- https://tailwindcss.com/docs/order -->
+<body>
+  
+  <!-- YENİ EKLENEN ÖZET KISMI (EN BAŞTA) -->
+  <div class="max-w-4xl mx-auto mt-8 mb-12 p-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+    <h1 class="text-3xl font-extrabold text-slate-800 mb-6 pb-4 border-b-2 border-indigo-200">
+      Tailwind Flexbox: Büyüme, Küçülme ve Temel Boyut (Özet)
+    </h1>
+    
+    <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
+      
+      <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-bold text-indigo-600 mb-2 flex items-center gap-2">
+          <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-lg text-sm">1</span> 
+          flex-basis (Etiket Fiyatı)
+        </h2>
+        <p>Bir kutunun <strong>"pazarlığa oturmadan önceki" ilk istediği boyuttur</strong>. Kutu, diğer kutularla yan yana gelmeden önce <span class="bg-yellow-100 px-2 py-0.5 rounded">"benim ideal genişliğim bu kadar olsun"</span> der.</p>
+      </div>
 
-    <!-- Grow and shrink -->
-    <!-- https://tailwindcss.com/docs/flex-shrink -->
-  </body>
+      <div class="bg-white p-5 rounded-xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-bold text-emerald-600 mb-2 flex items-center gap-2">
+          <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-lg text-sm">2</span> 
+          flex-grow (Aç Gözlülük)
+        </h2>
+        <p>Ekranda boş yer kalırsa <strong>"Ben büyüyüp o boşluğu yiyeyim mi?"</strong> ayarıdır.</p>
+        <ul class="list-disc pl-6 mt-2 space-y-1 text-slate-600">
+          <li><strong>grow:</strong> Yiyeyim.</li>
+          <li><strong>grow-0:</strong> Tokum, yemem.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-5 rounded-xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-bold text-rose-600 mb-2 flex items-center gap-2">
+          <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-lg text-sm">3</span> 
+          flex-shrink (Fedakarlık)
+        </h2>
+        <p>Ekranda yer kalmazsa ve kutular sıkışırsa <strong>"Ben fedakarlık yapıp daralayım mı?"</strong> ayarıdır.</p>
+        <ul class="list-disc pl-6 mt-2 space-y-1 text-slate-600">
+          <li><strong>shrink:</strong> Daralırım, sorun yok.</li>
+          <li><strong>shrink-0:</strong> Asla daralmam, gerekirse dışarı taşarım!</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-5 rounded-xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-bold text-amber-600 mb-2 flex items-center gap-2">
+          <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-lg text-sm">4</span> 
+          Kısayollar (flex, flex-initial, flex-auto)
+        </h2>
+        <p class="mb-3 text-slate-600">Sadece bu kısayol değil, diğerleri de var:</p>
+        <ul class="space-y-3">
+          <li class="flex gap-3">
+            <strong class="bg-slate-100 text-slate-800 px-2 py-1 rounded border border-slate-200 min-w-32 text-center">flex-initial<br><span class="text-xs font-normal">(Varsayılan)</span></strong>
+            <span>Sadece kendi içimdeki yazı kadar yer kaplarım (büyümem), ama ekran daralırsa mecbur küçülürüm.</span>
+          </li>
+          <li class="flex gap-3">
+            <strong class="bg-slate-100 text-slate-800 px-2 py-1 rounded border border-slate-200 min-w-32 text-center">flex-auto</strong>
+            <span>İçimdeki yazıya göre boyutlanırım ama boş yer varsa büyürüm, yer daralırsa da küçülürüm.</span>
+          </li>
+          <li class="flex gap-3">
+            <strong class="bg-slate-100 text-slate-800 px-2 py-1 rounded border border-slate-200 min-w-32 text-center">flex-1</strong>
+            <span>İçimdeki yazının zerre önemi yok. Ekranda ne kadar boşluk varsa kardeş payı bölüşürüz.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <!-- ÖZET KISMI SONU -->
+
+  <!-- 
+    FLEXBOX: BÜYÜME, KÜÇÜLME VE TEMEL BOYUT (Mala anlatır gibi anlatım)
+  -->
+  <div class="p-4 mt-8 bg-blue-50 border-t-4 border-blue-500">
+    <h2 class="text-2xl font-bold mb-4 text-blue-800">Flexbox Esneklik Kuralları (Mala anlatır gibi)</h2>
+
+    <div class="space-y-6 text-gray-800">
+
+      <!-- FLEX BASIS -->
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-lg font-bold text-red-600 mb-2">1. flex-basis (Varsayılan Boyut / Etiket Fiyatı)</h3>
+        <p class="mb-2">Bir kutunun <strong>pazarlığa oturmadan önceki ilk istediği fiyattır (boyuttur)</strong>.
+          Kutuların yan yana dizilmeden önce "benim ideal genişliğim bu olsun" demesidir. <br>
+          <em>Tailwind'de kullanımı:</em> <code>basis-1/4</code> (çeyreği kapla), <code>basis-40</code> (10rem/160px ol)
+          gibi.
+        </p>
+        <div class="flex gap-2 bg-gray-200 p-2">
+          <div class="bg-red-400 p-2 text-white basis-1/2">Benim idealim yarısını kaplamak (basis-1/2)</div>
+          <div class="bg-red-500 p-2 text-white basis-1/4">Benim idealim çeyreği kaplamak (basis-1/4)</div>
+        </div>
+      </div>
+
+      <!-- FLEX GROW -->
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-lg font-bold text-green-600 mb-2">2. flex-grow (Aç Gözlülük / Boşluk Doldurma)</h3>
+        <p class="mb-2">Ekranda boş yer kalırsa, <strong>"Ben büyüyüp o boşluğu yiyeyim mi?"</strong> ayarıdır.<br>
+          - <code>grow-0</code>: Tokum, boş yer kalsa da büyümem.<br>
+          - <code>grow</code>: Açım, ne kadar boş yer varsa yayılıp hepsini alırım.</p>
+        <div class="flex gap-2 bg-gray-200 p-2">
+          <div class="bg-green-400 p-2 text-white grow-0">Ben büyümem (grow-0)</div>
+          <div class="bg-green-500 p-2 text-white grow">Tüm boşluğu ben yerim! (grow)</div>
+        </div>
+      </div>
+
+      <!-- FLEX SHRINK -->
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-lg font-bold text-purple-600 mb-2">3. flex-shrink (Fedakarlık / Sıkışma Payı)</h3>
+        <p class="mb-2">Ekranda yer kalmazsa ve kutular birbirini itmeye başlarsa, <strong>"Ben fedakarlık yapıp
+            daralayım mı?"</strong> ayarıdır.<br>
+          - <code>shrink-0</code>: Asla küçülmem! Yazım dışarı taşsa da banane.<br>
+          - <code>shrink</code>: Gerekirse daralırım, sorun yok.</p>
+        <div class="flex gap-2 bg-gray-200 p-2 w-[300px] border-2 border-dashed border-black">
+          <!-- Kapsayıcıyı bilerek çok dar (300px) yaptık ki sıkışsınlar -->
+          <div class="bg-purple-400 p-2 text-white w-64 shrink-0">Ben asla küçülmem! (shrink-0) İçeriğim taşar!</div>
+          <div class="bg-purple-500 p-2 text-white w-64 shrink">Ben duruma göre küçülürüm (shrink)</div>
+        </div>
+        <p class="text-xs mt-1 text-gray-500">(Yukarıdaki siyah kesik çizgili kutu çok dar, birinci kutu shrink-0 olduğu
+          için dışarı taştı!)</p>
+      </div>
+
+      <!-- KISA YOLLAR -->
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-lg font-bold text-orange-600 mb-2">4. Kısayollar (flex, flex-initial, flex-auto)</h3>
+        <p class="mb-2">Sürekli grow, shrink, basis yazmak yerine Tailwind bize hazır paketler sunar:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong><code>flex-initial</code> (Varsayılan):</strong> "Sadece içimdeki yazı kadar yer kaplayayım (grow:
+            0), ama ekran daralırsa mecbur küçülürüm (shrink: 1)."</li>
+          <li><strong><code>flex-auto</code>:</strong> "İçimdeki yazıya göre boyutlanırım ama boş yer varsa büyürüm, yer
+            daralırsa küçülürüm."</li>
+          <li><strong><code>flex-1</code>:</strong> "İçimdeki yazının zerre önemi yok. Ekranda ne kadar boşluk varsa
+            kardeş payı eşit bölüşürüz."</li>
+        </ul>
+        <div class="flex gap-2 bg-gray-200 p-2 mt-4">
+          <div class="bg-orange-300 p-2 flex-initial">flex-initial (Kendi boyutumda kalırım, boşluğu almam ama
+            daralırım)</div>
+          <div class="bg-orange-400 p-2 flex-auto">flex-auto (İçeriğime göre esnerim)</div>
+          <div class="bg-orange-500 p-2 flex-1">flex-1 (Kalanı eşit bölerim)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
 </html>

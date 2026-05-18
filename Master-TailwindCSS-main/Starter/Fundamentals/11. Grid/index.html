@@ -1,13 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Grid</title>
-  </head>
-  <body class="p-10">
-    <!-- https://tailwindcss.com/docs/grid-template-rows -->
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind Grid Rehberi</title>
+  <!-- Tailwind CSS v4 Browser CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 font-sans p-4 md:p-10 text-slate-800">
+
+  <div class="max-w-5xl mx-auto space-y-12">
+    
+    <!-- Başlık Alanı -->
+    <div class="text-center bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight">
+        Tailwind Grid: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Arsa Parselleme Sanatı</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+        Flexbox kutuları tek bir sıraya (yan yana veya alt alta) dizmek içindi. 
+        <strong>Grid</strong> ise hem yan yana hem alt alta <strong>iki boyutlu</strong> karmaşık tasarımları legolarla oynar gibi yapmanın yoludur. (Mala anlatır gibi adım adım inceleyelim!)
+      </p>
+    </div>
+
+    <!-- Adım 1 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-sky-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center text-2xl font-black">1</div>
+        <div>
+          <h2 class="text-2xl font-bold text-sky-700">Arsayı Almak ve Parsellemek (grid, grid-cols-X, gap-X)</h2>
+          <p class="text-slate-600 mt-2 text-lg">
+            Kapsayıcı div'e <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">grid</code> diyerek "Burası bir inşaat alanı" diyoruz. 
+            Sonra <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">grid-cols-3</code> diyerek arsayı yan yana <strong>3 eşit parsele</strong> bölüyoruz. 
+            Binalar bitişik nizam olmasın diye de <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">gap-4</code> (sokak boşluğu) ekliyoruz.
+          </p>
+        </div>
+      </div>
+
+      <!-- Adım 1 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-cols-3 gap-4"</p>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">1. Parsel</div>
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">2. Parsel</div>
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">3. Parsel</div>
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">4. Parsel (Alta geçer)</div>
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">5. Parsel</div>
+          <div class="bg-sky-500 text-white p-4 rounded-lg text-center font-bold shadow">6. Parsel</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adım 2 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-purple-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-2xl font-black">2</div>
+        <div>
+          <h2 class="text-2xl font-bold text-purple-700">Parselleri Birleştirmek (Dükkanı Büyütmek: col-span-X)</h2>
+          <p class="text-slate-600 mt-2 text-lg">
+            Bazen bir kutu "Ben tek parselle yetinmem, yan yana iki parseli birleştirip kocaman AVM yapacağım" der. 
+            İşte bu <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">col-span-2</code> komutudur. "İki sütunluk yer kapla" anlamına gelir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Adım 2 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-cols-3 gap-4"</p>
+        <div class="grid grid-cols-3 gap-4">
+          <!-- Bu kutu 2 parsel kaplıyor -->
+          <div class="bg-purple-600 text-white p-4 rounded-lg text-center font-bold shadow col-span-2">
+            Ben AVM'yim! 2 parsel kaplıyorum (col-span-2)
+          </div>
+          <div class="bg-purple-400 text-white p-4 rounded-lg text-center font-bold shadow">
+            Ben Bakkalım (Normal 1 parsel)
+          </div>
+          <!-- Bu kutu tüm satırı (3 parseli) kaplıyor -->
+          <div class="bg-purple-800 text-white p-4 rounded-lg text-center font-bold shadow col-span-3">
+            Ben Fabrikayım! Bütün satırı kaplıyorum (col-span-3)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adım 3 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-emerald-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl font-black">3</div>
+        <div>
+          <h2 class="text-2xl font-bold text-emerald-700">Dubleks / Tripleks Bina Çıkmak (row-span-X)</h2>
+          <p class="text-slate-600 mt-2 text-lg">
+            Kutu yana doğru değil de <strong>aşağıya doğru</strong> büyümek isteyebilir. "Ben alt katı da alıp dubleks mağaza yapacağım" diyen kutu için 
+            <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">row-span-2</code> kullanırız. "İki satırlık boya sahip ol" demektir.
+          </p>
+        </div>
+      </div>
+
+      <!-- Adım 3 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-cols-3 gap-4"</p>
+        <div class="grid grid-cols-3 gap-4">
+          <!-- Aşağı doğru 2 satır kaplayan kutu -->
+          <div class="bg-emerald-600 text-white p-4 rounded-lg flex items-center justify-center font-bold shadow row-span-2 text-center">
+            Dubleks Bina!<br>Aşağı doğru 2 satır (row-span-2)
+          </div>
+          <div class="bg-emerald-400 text-white p-4 rounded-lg text-center font-bold shadow">Normal Kutu</div>
+          <div class="bg-emerald-400 text-white p-4 rounded-lg text-center font-bold shadow">Normal Kutu</div>
+          <div class="bg-emerald-400 text-white p-4 rounded-lg text-center font-bold shadow col-span-2">Yan yana 2 Parsel (col-span-2)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adım 4 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-amber-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl font-black">4</div>
+        <div>
+          <h2 class="text-2xl font-bold text-amber-700">Parseldeki Eşyaları Hizalamak (place-items)</h2>
+          <p class="text-slate-600 mt-2 text-lg">
+            Grid ile parselleri böldük, peki o parsellerin içindeki yazılar (eşyalar) nerede duracak? 
+            Tam ortada durması için kapsayıcıya <code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">place-items-center</code> yazmak yeterlidir! (Flex'teki justify-center + items-center'ın tek kodluk Grid halidir.)
+          </p>
+        </div>
+      </div>
+
+      <!-- Adım 4 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-cols-2 gap-4 h-48"</p>
+        <div class="grid grid-cols-2 gap-4 h-48">
+          
+          <!-- Varsayılan -->
+          <div class="bg-amber-100 border-2 border-dashed border-amber-400 rounded-lg p-2 flex flex-col justify-between">
+            <span class="text-xs font-bold text-amber-700">Varsayılan (Sol Üst Köşe)</span>
+            <div class="w-10 h-10 bg-amber-500 rounded"></div>
+          </div>
+          
+          <!-- place-items-center kullanılarak ortalanmış bir grid div -->
+          <div class="bg-amber-100 border-2 border-dashed border-amber-400 rounded-lg p-2 grid place-items-center relative">
+            <span class="text-xs font-bold text-amber-700 absolute top-2 left-2">grid place-items-center</span>
+            <div class="w-10 h-10 bg-amber-600 rounded-full shadow-lg scale-150 animate-pulse"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Adım 5 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-rose-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-2xl font-black">5</div>
+        <div>
+          <h2 class="text-2xl font-bold text-rose-700">Akış Yönü ve Boşluk Doldurma (grid-flow)</h2>
+          <div class="text-slate-600 mt-2 text-lg">
+            Kutuların sıralanma yönünü belirleriz. Normalde soldan sağa (satır satır) dizilirler.
+            <ul class="list-disc pl-5 mt-3 space-y-2">
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">grid-flow-row</code>: Soldan sağa diz, yer kalmazsa alt satıra geç. (Varsayılan)</li>
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">grid-flow-col</code>: Yukarıdan aşağıya (sütun sütun) diz, sütun dolunca yandaki sütuna geç.</li>
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">grid-flow-dense</code>: <strong>"Delik Tıkayıcı!"</strong> Bazen büyük kutular (`col-span-2` vb.) yüzünden grid'de boşluklar kalabilir. `dense` komutu, aradaki boşluklara sığabilecek küçük kutuları öne çekerek tetris gibi aralardaki delikleri kapatır.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adım 5 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-flow-col grid-rows-3 gap-2" (Aşağı doğru akar)</p>
+        <div class="grid grid-flow-col grid-rows-3 gap-2 h-32">
+          <div class="bg-rose-500 text-white p-2 rounded text-center font-bold flex items-center justify-center">1</div>
+          <div class="bg-rose-500 text-white p-2 rounded text-center font-bold flex items-center justify-center">2</div>
+          <div class="bg-rose-500 text-white p-2 rounded text-center font-bold flex items-center justify-center">3</div>
+          <div class="bg-rose-400 text-white p-2 rounded text-center font-bold flex items-center justify-center">4</div>
+          <div class="bg-rose-400 text-white p-2 rounded text-center font-bold flex items-center justify-center">5</div>
+          <div class="bg-rose-400 text-white p-2 rounded text-center font-bold flex items-center justify-center">6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adım 6 -->
+    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-fuchsia-100">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="shrink-0 w-12 h-12 bg-fuchsia-100 text-fuchsia-600 rounded-full flex items-center justify-center text-2xl font-black">6</div>
+        <div>
+          <h2 class="text-2xl font-bold text-fuchsia-700">Otomatik Boyutlandırma (auto-cols / auto-rows)</h2>
+          <div class="text-slate-600 mt-2 text-lg">
+            Açıkça "Şu kadar sütun/satır olsun" demediğimizde, içerdeki elemanlar kendi kendine satır veya sütun oluşturursa bunların boyutu ne olacak?
+            <ul class="list-disc pl-5 mt-3 space-y-2">
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">auto-cols-auto</code>: Otomatik esnesin.</li>
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">auto-cols-min</code>: Mümkün olan <strong>en dar</strong> boyutta olsun. (İçindeki en uzun kelime kadar yer kaplar, gerisini alt satıra atar).</li>
+              <li><code class="bg-slate-100 text-pink-600 px-2 py-0.5 rounded font-bold">auto-cols-max</code>: Mümkün olan <strong>en geniş</strong> boyutta olsun. (İçindeki cümleyi hiç satır sonundan kırmadan upuzun sığdırır).</li>
+            </ul>
+            <em class="text-sm block mt-2 text-slate-500">(Aynı mantık satırlar için <code>auto-rows-auto</code>, <code>auto-rows-min</code>, <code>auto-rows-max</code> şeklinde de geçerlidir.)</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adım 6 Demo -->
+      <div class="bg-slate-100 p-4 rounded-xl border border-slate-200 overflow-x-auto">
+        <p class="text-sm text-slate-500 mb-2 font-mono">class="grid grid-flow-col auto-cols-max gap-2"</p>
+        <div class="grid grid-flow-col auto-cols-max gap-2">
+          <div class="bg-fuchsia-500 text-white p-4 rounded text-center font-bold">Ben max'ım! Satırı hiç kırmadan upuzun tek satır olurum.</div>
+          <div class="bg-fuchsia-400 text-white p-4 rounded text-center font-bold">Maksimum Genişlik</div>
+        </div>
+        
+        <p class="text-sm text-slate-500 mb-2 mt-4 font-mono">class="grid grid-flow-col auto-cols-min gap-2"</p>
+        <div class="grid grid-flow-col auto-cols-min gap-2">
+          <div class="bg-fuchsia-500 text-white p-4 rounded text-center font-bold">Ben min'im! En uzun kelimem kadar yer kaplarım.</div>
+          <div class="bg-fuchsia-400 text-white p-4 rounded text-center font-bold">Daracık</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Klasik Grid Layout Örneği (Bonus) -->
+    <div class="bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl text-white">
+      <h2 class="text-2xl font-bold text-white mb-4">🏆 Bonus: Klasik Bir Web Sitesi İskeleti Yapalım</h2>
+      <p class="text-slate-300 mb-6 text-lg">
+        Tüm öğrendiklerimizi birleştirerek, <strong>grid</strong> ile saniyeler içinde "Header, Sidebar, Main Content ve Footer" barındıran bir site tasarımı (iskeleti) yapalım.
+      </p>
+
+      <!-- Layout Demo -->
+      <div class="grid grid-cols-4 gap-3 font-bold text-center text-slate-800">
+        <!-- Header (Tüm satır) -->
+        <div class="bg-rose-400 p-4 rounded-lg col-span-4 flex items-center justify-center">
+          HEADER (col-span-4)
+        </div>
+        
+        <!-- Sidebar (1 sütun, 2 satır) -->
+        <div class="bg-indigo-400 p-4 rounded-lg col-span-1 row-span-2 flex items-center justify-center min-h-[150px]">
+          SIDEBAR<br>(col-span-1<br>row-span-2)
+        </div>
+        
+        <!-- Main Content (3 sütun) -->
+        <div class="bg-sky-400 p-4 rounded-lg col-span-3 flex items-center justify-center min-h-[150px]">
+          ANA İÇERİK (col-span-3)
+        </div>
+        
+        <!-- Alttaki 3'lü küçük kutular -->
+        <div class="bg-teal-400 p-4 rounded-lg">Kutu 1</div>
+        <div class="bg-teal-400 p-4 rounded-lg">Kutu 2</div>
+        <div class="bg-teal-400 p-4 rounded-lg">Kutu 3</div>
+
+        <!-- Footer (Tüm satır) -->
+        <div class="bg-slate-500 p-4 rounded-lg col-span-4 flex items-center justify-center text-white">
+          FOOTER (col-span-4)
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+</body>
 </html>
