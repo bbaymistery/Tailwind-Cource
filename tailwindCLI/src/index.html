@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts ekleyerek tipografiyi profesyonelleştiriyoruz -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen p-8 flex items-center justify-center">
+
+    <div class="max-w-4xl w-full mx-auto space-y-12">
+        
+        <!-- Base Layer'dan gelen font-heading ve text renkleri burada devreye giriyor -->
+        <header class="text-center space-y-4">
+            <h1 class="text-4xl md:text-5xl">Profesyonel Tailwind Yaklaşımı</h1>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+                Katmanları (@layer) ve temayı (@theme) doğru kurgulayarak daha temiz HTML ve kolay yönetilebilir bir stil mimarisi.
+            </p>
+        </header>
+
+        <!-- Components katmanında tanımladığımız ".card" ve ".btn-primary" kullanımı -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-indigo-100 text-brand-primary rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h2 class="text-xl mb-3">Bileşen (Component) Mimarisi</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Aynı buton veya kart için HTML içine 15 tane utility class yazmak yerine <code>.card</code> ve <code>.btn-primary</code> sınıflarını kullandık. Kod okuması çok daha kolay!
+                    </p>
+                </div>
+                <button class="btn-primary w-full mt-6">
+                    Detayları İncele
+                </button>
+            </div>
+
+            <!-- Utilities katmanında tanımladığımız ".glass-effect" kullanımı -->
+            <div class="card relative overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 text-white border-none shadow-xl">
+                <!-- Arka plan süslemesi -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-xl text-white mb-3">Özel Yardımcılar (Utilities)</h2>
+                    <p class="text-indigo-100 leading-relaxed mb-6">
+                        Aşağıdaki alan, <code>utilities</code> katmanında oluşturduğumuz <code>.glass-effect</code> (cam efekti) sınıfını kullanıyor.
+                    </p>
+                    
+                    <div class="glass-effect p-5 rounded-xl">
+                        <p class="text-sm font-medium text-white text-shadow-sm flex items-center gap-2">
+                            <span>✨</span> Glassmorphism harika görünüyor!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

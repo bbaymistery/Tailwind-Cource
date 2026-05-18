@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* 
+  1. THEME (TEMA)
+  Profesyonel yaklaşımda projenin ana renkleri, fontları ve tasarım sistemi burada tanımlanır.
+  Böylece her yerde "bg-blue-500" yazmak yerine "bg-brand-primary" kullanırız. Marka rengi değiştiğinde tek bir yeri güncellemek yeterli olur.
+*/
+@theme {
+  --color-brand-primary: #4f46e5; /* Indigo 600 */
+  --color-brand-hover: #4338ca;   /* Indigo 700 */
+  --color-brand-surface: #f8fafc; /* Slate 50 */
+  --font-heading: 'Inter', sans-serif;
+}
+
+/* 
+  2. BASE (TEMEL)
+  Tüm uygulamanın varsayılan tipografisini, arka planını veya odaklanma (focus) durumlarını ayarlarız.
+*/
+@layer base {
+  body {
+    @apply bg-brand-surface text-slate-800 antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-heading font-bold text-slate-900 tracking-tight;
+  }
+}
+
+/* 
+  3. COMPONENTS (BİLEŞENLER)
+  UI kitimizi (butonlar, kartlar, form elemanları) burada oluştururuz.
+  Böylece HTML temiz kalır ve stil değişiklikleri tek bir yerden yönetilir.
+*/
+@layer components {
+  /* Profesyonel, erişilebilir ve animasyonlu bir buton bileşeni */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 
+           bg-brand-primary text-white font-medium rounded-xl 
+           transition-all duration-200 ease-in-out
+           hover:bg-brand-hover hover:shadow-md hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-sm
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2;
+  }
+
+  /* Profesyonel bir kart bileşeni */
+  .card {
+    @apply bg-white p-6 rounded-2xl shadow-sm border border-slate-100
+           transition-shadow duration-300 hover:shadow-lg;
+  }
+}
+
+/* 
+  4. UTILITIES (YARDIMCI SINIFLAR)
+  Özel ihtiyaçlar için veya tasarım sistemine ait ufak dokunuşlar için.
+*/
+@layer utilities {
+  /* Özel bir metin gölgesi */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Arka planı bulanıklaştıran profesyonel bir cam efekti (Glassmorphism) */
+  .glass-effect {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+}

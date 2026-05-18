@@ -1,0 +1,22 @@
+{
+  "name": "tailwindcli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "//açıklama_build": "-i (input) ile kaynak CSS'i alıp, -o (output) ile çıktı dosyasını oluşturur. --minify parametresi dosya boyutunu küçültür.",
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    
+    "//açıklama_watch": "--watch parametresi, siz kod yazarken değişiklikleri izler ve anında src içindeki output.css'i günceller.",
+    "watch": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
