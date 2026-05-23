@@ -9,7 +9,7 @@ export default function AboutPage() {
 
       {/* Main Glassmorphic Container */}
       <main className="relative z-10 w-full max-w-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-300 hover:border-zinc-700/60">
-        
+
         {/* Badge */}
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 mb-6">
           <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
@@ -23,7 +23,7 @@ export default function AboutPage() {
 
         {/* Description */}
         <p className="text-lg text-zinc-400 leading-relaxed mb-8">
-          This is an example of an <strong className="text-zinc-200">About Page</strong> routed dynamically at <code className="text-violet-400 bg-zinc-800/40 px-2 py-0.5 rounded text-sm font-mono">localhost:3000/about</code>. 
+          This is an example of an <strong className="text-zinc-200">About Page</strong> routed dynamically at <code className="text-violet-400 bg-zinc-800/40 px-2 py-0.5 rounded text-sm font-mono">localhost:3000/about</code>.
           In the modern Next.js App Router, routing is folder-based, meaning any folder inside <code className="text-zinc-300 font-mono">src/app/</code> containing a <code className="text-zinc-300 font-mono">page.tsx</code> automatically defines that path.
         </p>
 
