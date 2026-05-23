@@ -27,6 +27,8 @@ export default function AboutPage() {
           In the modern Next.js App Router, routing is folder-based, meaning any folder inside <code className="text-zinc-300 font-mono">src/app/</code> containing a <code className="text-zinc-300 font-mono">page.tsx</code> automatically defines that path.
         </p>
 
+
+
         {/* Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="p-5 rounded-2xl bg-zinc-800/30 border border-zinc-800 hover:border-zinc-700/40 transition-all duration-200">
