@@ -15,3 +15,10 @@ Figma Link :  https://www.youtube.com/redirect?event=video_description&redir_tok
 Github Repository : https://github.com/thony-cb/8xFlow
 
 Youtube Tutorial : https://www.youtube.com/watch?v=MYTjeqaezHw
+
+
+3-figma-to-nextjs-tailwind
+
+Figma Link : https://www.figma.com/file/TXLwYa51OaUfXRjO5AQvL0/Codedamn-Frontend-Assessment
+
+Youtube Tutorial : https://www.youtube.com/watch?v=fgrlH9pbVU0
