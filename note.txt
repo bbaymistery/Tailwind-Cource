@@ -1,0 +1,174 @@
+innputun boirderi 1px => border: 1px solid #F4F4F5
+background: #FFFFFF; /shades/white >bazende text color oluyor 
+
+background: #F4F4F5; //herhangi bir butonun rengi 
+butonun icindeki text color : background: #71717A;
+Zink 500/ background: #71717A;
+box-shadow: 0px 2px 16px 0px #5746F480;
+background: radial-gradient(50% 50% at 50% 50%, #000000 0%, #222023 100%);
+
+Primary/500 background: #6366F1;
+background: #EC4899; Accent-2/500
+Secondary/500 #0EA5E9
+background: #18181B;/zink 900
+
+Zink/100 #F4F4F5  > herhangi bir butonun bg si 
+Zink/900 #18181B > text color 
+radius 50px
+radius 24px
+gap 4px
+#A1A1AA//zink 400
+background: #71717A;  Zink 500/
+background: #18181B; zink/900
+Zink/200 >colorda olur borderde olur >#E4E4E7 
+
+//>herhangi bir yaziya tikladigimda mesela inoput uzerindeki label
+
+font-family: Inter;
+font-weight: 600;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 20px;
+letter-spacing: 0%;
+vertical-align: middle;
+
+
+//mesela herhangi bir baslik 
+font-family: Inter;
+font-weight: 700;
+font-size: 20px;
+leading-trim: NONE;
+line-height: 28px;
+letter-spacing: 0%
+
+
+//normal paragraph yazisi
+font-family: Inter;
+font-weight: 400;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 24px;
+letter-spacing: 0%;
+;
+
+
+//p herhangi bir yazi
+font-family: Inter;
+font-weight: 700;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 24px;
+letter-spacing: 0%;
+
+
+
+font-family: Inter;
+font-weight: 400;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 24px;
+letter-spacing: 0%;
+
+
+font-family: Inter;
+font-weight: 400;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 20px;
+letter-spacing: 0%;
+
+Primary/600  #4F46E5
+
+Primary/600  #4F46E5 >bazende bordere atamislar
+
+
+8px>border-radiues
+border 2px de var 1.5 pxde val 1 px de var
+Zink/50 #FAFAFA
+Zink/100 #F4F4F5 
+
+ #A1A1AA Zink/400
+Zink/200 #E4E4E7
+
+ Primary/50 #EEF2FF
+
+
+
+ font-family: Inter;
+font-weight: 600;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 28px;
+letter-spacing: 0%;
+
+
+Primary/50 #EEF2FF
+
+
+border: 1px solid #E4E4E7
+
+font-family: Inter;
+font-weight: 700;
+font-size: 24px;
+leading-trim: NONE;
+line-height: 32px;
+letter-spacing: 0%;
+Secondary/200 #BAE6FD
+ 
+#F4F4F5 Zink/100 
+ Zink/400  #A1A1AA
+
+ Zink/200 #E4E4E7
+
+font-family: Inter;
+font-weight: 700;
+font-size: 28px;
+leading-trim: NONE;
+line-height: 120%;
+letter-spacing: 0%;
+Secondary/100 #E0F2FE
+Secondary/800 #075985
+Success/300  #BEF264 
+
+width: 359;
+height: 76;
+gap: 16px;
+angle: 0 deg;
+opacity: 1;
+border-radius: 12px;
+padding-top: 12px;
+padding-right: 20px;
+padding-bottom: 12px;
+padding-left: 20px;
+border-width: 1px;
+
+
+#FAFAFA Zink/50
+
+Zink/700 #3F3F46
+
+
+font-family: Inter;
+font-weight: 700;
+font-size: 24px;
+leading-trim: NONE;
+line-height: 32px;
+letter-spacing: 0%;
+
+
+background: #4F46E5;
+background: #FFFFFF29;
+border: 1px solid;
+
+border-image-source: linear-gradient(131.06deg, rgba(244, 244, 245, 0.12) 1.42%, rgba(244, 244, 245, 0.32) 98.36%);
+
+border-raious 16 px
+
+font-family: Inter;
+font-weight: 700;
+font-size: 24px;
+leading-trim: NONE;
+line-height: 32px;
+letter-spacing: 0%;
+
+border

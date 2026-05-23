@@ -8,37 +8,28 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   iconPrefix?: React.ReactNode;
 }
 
-export default function Input({
-  label,
-  description,
-  error,
-  iconPrefix,
-  className = "",
-  id,
-  ...props
-}: InputProps) {
+export default function Input({ label, description, error, iconPrefix, className = "", id, ...props }: InputProps) {
   // Generate a unique ID if one is not provided, helping with SEO and browser focus accessibility
   const inputId = id || `input-${label?.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
     <div className="flex flex-col w-full">
       {/* 1. Label Section */}
-      {label && (
+      {/* {label && (
         <label
           htmlFor={inputId}
           className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5 cursor-pointer select-none"
         >
           {label}
         </label>
-      )}
+      )} */}
 
       {/* 2. Input Wrapper (handles prefix alignment and borders) */}
       <div
-        className={`relative flex items-center w-full rounded-lg border bg-white dark:bg-zinc-950 transition-all duration-200 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary ${
-          error
+        className={`relative flex items-center w-full rounded-lg border bg-white dark:bg-zinc-950 transition-all duration-200 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary ${error
             ? "border-red-500 focus-within:border-red-500 focus-within:ring-red-500"
             : "border-zinc-200 dark:border-zinc-800"
-        }`}
+          }`}
       >
         {/* Left Prefix Icon/Content */}
         {iconPrefix && (
@@ -50,26 +41,25 @@ export default function Input({
         {/* Actual Input Element */}
         <input
           id={inputId}
-          className={`w-full bg-transparent px-3.5 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none ${
-            iconPrefix ? "pl-0" : ""
-          } ${className}`}
+          className={`w-full bg-transparent px-3.5 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none ${iconPrefix ? "pl-0" : ""
+            } ${className}`}
           {...props}
         />
       </div>
 
       {/* 3. Description / Helper Text */}
-      {description && !error && (
+      {/* {description && !error && (
         <p className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-1 select-none">
           {description}
         </p>
-      )}
+      )} */}
 
       {/* 4. Error Message */}
-      {error && (
+      {/* {error && (
         <p className="text-[11px] text-red-500 font-semibold mt-1 select-none">
           {error}
         </p>
-      )}
+      )} */}
     </div>
   );
 }
