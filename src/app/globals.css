@@ -1,44 +1,80 @@
 @import "tailwindcss";
-@import "./utilities.css"; /* Import our separated utility CSS file */
+@import "./utilities.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  
-  /* Custom Design Tokens matching the Figma Layout */
-  --color-primary: #4F46E5;
-  --color-primary-hover: #4338CA;
-  --color-surface-bg: #F9FAFB;
-  --color-border-gray: #E5E7EB;
-  --color-text-muted: #6B7280;
-  --color-text-main: #111827;
+  /* ==========================================
+     1. PALETTE TOKENS (From note.txt)
+     ========================================== */
+  --zinc-50: #FAFAFA;
+  --zinc-100: #F4F4F5;
+  --zinc-200: #E4E4E7;
+  --zinc-400: #A1A1AA;
+  --zinc-500: #71717A;
+  --zinc-700: #3F3F46;
+  --zinc-900: #18181B;
+
+  --indigo-50: #EEF2FF;
+  --indigo-500: #6366F1;
+  --indigo-600: #4F46E5;
+
+  --pink-500: #EC4899;
+  --sky-500: #0EA5E9;
+  --sky-100: #E0F2FE;
+  --sky-200: #BAE6FD;
+  --sky-800: #075985;
+  --lime-300: #BEF264;
+
+  /* ==========================================
+     2. SEMANTIC TOKENS (Clean & Simple)
+     ========================================== */
+  --background: var(--zinc-50);
+  --foreground: var(--zinc-900);
+
+  --color-primary: var(--indigo-600);
+  --color-primary-hover: var(--indigo-500);
+  --color-primary-light: var(--indigo-50);
+
+  --color-surface: #FFFFFF;
+  --color-surface-muted: var(--zinc-100);
+
+  /* Clean naming to avoid border-border-custom and text-text-muted repetitions */
+  --color-line: var(--zinc-200);
+  /* Results in: border-line */
+  --color-muted: var(--zinc-500);
+  /* Results in: text-muted */
+  --color-main: var(--zinc-900);
+  /* Results in: text-main */
 }
 
 @theme {
-  /* Map the custom Inter Google Font as the primary sans-serif font family */
   --font-sans: var(--font-inter), var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
-  /* Map CSS variables to Tailwind utility classes */
+
+  /* Map the clean color keys to Tailwind v4 class engine */
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
-  --color-surface: var(--color-surface-bg);
-  --color-border-custom: var(--color-border-gray);
-  --color-muted: var(--color-text-muted);
-  --color-main: var(--color-text-main);
-}
+  --color-primary-light: var(--color-primary-light);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    
-    /* Dark mode overrides for semantic tokens */
-    --color-surface-bg: #18181b;
-    --color-border-gray: #27272a;
-    --color-text-muted: #a1a1aa;
-    --color-text-main: #f4f4f5;
-  }
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+
+  --color-line: var(--color-line);
+  --color-muted: var(--color-muted);
+  --color-main: var(--color-main);
+
+  /* Accent Badge Colors */
+  --color-badge-pink: var(--pink-500);
+  --color-badge-sky: var(--sky-500);
+  --color-badge-sky-light: var(--sky-100);
+  --color-badge-sky-border: var(--sky-200);
+  --color-badge-sky-text: var(--sky-800);
+  --color-badge-success: var(--lime-300);
+
+  /* Custom Border Radius from note.txt */
+  --radius-button: 8px;
+  --radius-input: 8px;
+  --radius-card: 12px;
+  --radius-panel: 16px;
 }
 
 body {
